@@ -308,66 +308,6 @@ def round_up_to_odd(f):
     return np.ceil(f) // 2 * 2 + 1
 
 
-# ### Find breaks fro each splited image and its layers
-
-# In[ ]:
-
-
-#arg_tif = 'Snow_ epth'
-#brks = np.empty([len(data),data.shape[3]])           # Total breaks
-
-#for j in range(data.shape[3]):                       # Number of input layers
-#    brk_N = []
-#    brk_E = []
-#    for i in range(len(data)):                       # Number of images 
-#        imarray = data[i,:,:,j]
-#        if imarray.sum() != 0 and ( imarray != 0).sum() > 100:
-#            psd_y, freqs = psd_(imarray,'N')
-#            psd_x, freqs = psd_(imarray,'E')
-#            b1,b2,brk = segment_plot(freqs, psd_x, resolution, len(imarray), ['East-West',arg_tif],0)
-#            brk_E.append(brk)
-#            b1,b2,brk = segment_plot(freqs, psd_y, resolution, len(imarray), ['North-South',arg_tif],0)
-#            brk_N.append(brk)
-#            print(i,j)
-#            del imarray
-#        else:
-#            brk_N.append(0)
-#            brk_E.append(0)
-#    # Maximum breaks between East-West and North-South and ound break values to odd number
-#    brks[:,j] = round_up_to_odd(np.minimum(np.array(brk_N),np.array(brk_E))).astype(int)
-
-
-# ### Save breaks
-
-# In[ ]:
-
-
-#np.save('brks', brks)
-
-
-# ### Apply a Median filter to images
-
-# In[ ]:
-
-
-#brks = np.load('brks.npy')
-
-
-# In[ ]:
-
-
-#data_filt = data
-#brks = brks.astype(int)
-#for i in range(len(data)):
-#    for j in range(1,data.shape[3]):
-#        if brks[i,j] == 1:
-#            data_filt[i,:,:,j] = data[i,:,:,j]
-#        else:        
-#            data_filt[i,:,:,j] = sp.signal.medfilt2d(data[i,:,:,j],brks[i,j])
-#data_filt.shape
-#data = data_filt
-#del data_filt
-
 
 # ### Check if the crop is correct
 
@@ -446,17 +386,6 @@ x_train, x_test, y_train, y_test = train_test(data[:,:,:,1:],data[:,:,:,0], spl,
 
 
 del data
-# ### Median filter on train snow depth for scale process
-#y_train_filt = y_train
-#brks = brks.astype(int)
-#for i in range(len(train_idx)):
-#    if brks[train_idx[i],0] == 1:
-#        y_train_filt[i,:,:] = y_train[i,:,:]
-#    else:        
-#        y_train_filt[i,:,:] = sp.signal.medfilt2d(y_train[i,:,:],brks[train_idx[i],0])
-# y_train_filt.shape
-#y_train = y_train_filt
-#del y_train_filt
 
 
 # ### Standardize train and test
@@ -863,7 +792,7 @@ plt.savefig('Original_vs_Predicted_Snowdepth5.png',dpi=300)
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 270
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
@@ -952,66 +881,4 @@ label = ('Digital Elevation Model','Aspect', 'Slope', 'Canopy Percent Cover','Ca
 plot_feature_importance(MSE_R_2_test,label, 'Feature_importance_test')
 plot_feature_importance(MSE_R_2_train,label, 'Feature_importance_train')
 plot_feature_importance(MSE_R_2_val,label, 'Feature_importance_validation')
-
-
-
-
-
-
-
-
-# ### Feature map visualization for the first convolution layer
-
-# In[ ]:
-
-
-# # Image id to plot
-# img_id = 15
-
-# # First layer convolution
-# frst_CNN = tf.keras.Model(inputs = loaded_model.inputs, outputs = loaded_model.layers[1].output)
-
-# # Maps after passing the first layer Convolution
-# frst_CNN_maps = frst_CNN.predict(x_test[img_id,:,:,:].reshape(1,100,100,8))
-
-# # Plot several maps
-# plt.figure(figsize=(20,8))
-# for i in range(10):
-#     plt.subplot(2,5,i+1)
-#     plt.grid(False)
-#     plt.imshow(frst_CNN_maps[0,:,:,i])  
-# plt.savefig('First_CNN_layer_maps.png',dpi=300)
-
-
-# ### Feature importance
-
-# In[37]:
-
-
-# def perm_features(model, X, y, names):
-#     r = permutation_importance(model, X, y,n_repeats=30,random_state=0)
-#     for i in r.importances_mean.argsort()[::-1]:
-#         if r.importances_mean[i] - 2 * r.importances_std[i] > 0:
-#             print(f"{names[i]:<8}"
-#                   f"{r.importances_mean[i]:.3f}"
-#                   f" +/- {r.importances_std[i]:.3f}")
-
-
-# In[38]:
-
-
-# names = title0[1:]
-# perm_features(loaded_model, x_test, y_test, names)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
