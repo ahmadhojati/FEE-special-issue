@@ -4,6 +4,8 @@ This is python code related to our paper in Forest Ecology and Environment journ
 
 The fine folder contains the main code to predict fine resolution snow depth by features that define forest structural diversity.
 Features come from fine reolution (1m) airborne lidar data.
+
+
 It contains "model" folder which is a destination for saving the deep learning model parameters and weights.
 "output" folder is a folder to save the results of the model.
 "data folder contains our main dataset having 9 bands, where the first layer is snow depth and other bands are ground elevation, slope, aspect,
@@ -33,3 +35,6 @@ pip install --user seaborn
 
 Note: If the system says the requisits are already satisfied but python does not detect the libraries, 
 add "--ignore-installed" to the installation line.
+
+
+Note: as the dataset is about 2GB, we could not upload it here. To access the data please contact "ahmadhojatimalek@u.boisestate.edu".
