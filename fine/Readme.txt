@@ -1,5 +1,5 @@
 The main code is called "Deep_Learning_V2.py".
-
+This code predicts snow depth using topography and vegetation structure by fine resolution airborne lidar data.
 
 To run this code you need to load some modules and install several packages if they are not installed on your system:
 
