@@ -10,7 +10,7 @@ canopy percent cover, canopy height and foliage height diversity at 0.5, 1 and 2
 The main code is called "Deep_Learning_V2.py".
 This code predicts snow depth using topography and vegetation structure by fine resolution airborne lidar data.
 
-"Scaled" uses the same dataset and codes as above and the concept of scale breaks to resample the input features to a coarser resolution and attempts 
+"Scaled" folder uses the same dataset and codes as above and the concept of scale breaks to resample the input features to a coarser resolution and attempts 
 to predict snow depth using coarser topographical and vegetation structural information.
 
 To run the codes you need to load some modules and install several packages if they are not installed on your system:
