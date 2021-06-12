@@ -18,7 +18,7 @@ to predict snow depth using coarser topographical and vegetation structural info
 
 To run the codes you need to load some modules and install several packages if they are not installed on your system:
 
-### module load cuda10.0/toolkit/10.0.130
+##### module load cuda10.0/toolkit/10.0.130
 ### module load python36
 ### module load gdal/gcc8/3.0.4
 ### pip install --user osgeo
