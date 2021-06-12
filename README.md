@@ -1,6 +1,7 @@
 # FEE-special-issue
 
 This is python code related to our paper in Forest Ecology and Environment journal.
+
 The fine folder contains the main code to predict fine resolution snow depth by features that define forest structural diversity.
 Features come from fine reolution (1m) airborne lidar data.
 It contains "model" folder which is a destination for saving the deep learning model parameters and weights.
