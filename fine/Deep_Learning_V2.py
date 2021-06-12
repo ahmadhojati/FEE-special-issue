@@ -624,7 +624,7 @@ y_prd = loaded_model.predict(x_test).flatten()
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 159
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
@@ -658,7 +658,7 @@ plt.savefig('Original_vs_Predicted_Snowdepth1.png',dpi=300)
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 23
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
@@ -692,7 +692,7 @@ plt.savefig('Original_vs_Predicted_Snowdepth2.png',dpi=300)
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 67
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
@@ -726,7 +726,7 @@ plt.savefig('Original_vs_Predicted_Snowdepth3.png',dpi=300)
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 98
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
@@ -758,7 +758,7 @@ plt.savefig('Original_vs_Predicted_Snowdepth4.png',dpi=300)
 title = ['Original Snow Depth','Predicted Snow Depth','Difference']
 img_id = 209
 
-# Reshape the y_prd to 31*31 images
+# Reshape the y_prd to 250*250 images
 y_prd_reshape =  y_prd.reshape(y_test.shape)
 
 print('R-square for image {} is:'.format(img_id))
